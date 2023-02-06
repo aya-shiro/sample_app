@@ -9,13 +9,15 @@ class ListsController < ApplicationController
     # DWOではフォームからの入力データ受取とあるが(list: params[:list])と同義か？
     list = List.new(list_params)
     list.save
-    redirect_to("/top")
+    redirect_to("list_path(list.id)")
   end
 
   def index
+    @lists = List.all
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def edit
