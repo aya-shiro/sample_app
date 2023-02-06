@@ -5,8 +5,7 @@ class ListsController < ApplicationController
 
   # 投稿内容保存アクション
   def create
-    #引数(list_params)はprivateメソッド配下のストロングパラメータの呼び出し?
-    # DWOではフォームからの入力データ受取とあるが(list: params[:list])と同義か？
+    #引数(list_params)はprivateメソッド配下のストロングパラメータの呼び出し！
     list = List.new(list_params)
     list.save
     redirect_to("list_path(list.id)")
@@ -21,11 +20,18 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to("list_path(list.id)")
   end
 
   # アクション制限の境界線
   private
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
 end
