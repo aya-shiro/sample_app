@@ -12,4 +12,7 @@
 <% end %>
 
 <%= link_to "編集", edit_list_path(@list.id) %>
-<%= link_to "削除", destroy_list_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<!--削除リンクのdestroy_list_path(@list.id)をlist_path(@list.id)に書き換え
+list_pathは詳細ページのPrefixだけど、ここからmethod: :deleteに飛んでdestroyアクションで一覧ページにredirect_toする！
+ヘンイ第二引数のリンク先より第三引数が強かった
+<%= link_to "削除", list_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

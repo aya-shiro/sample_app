@@ -8,7 +8,7 @@ class ListsController < ApplicationController
     #引数(list_params)はprivateメソッド配下のストロングパラメータの呼び出し！
     list = List.new(list_params)
     list.save
-    redirect_to("list_path(list.id)")
+    redirect_to list_path(list.id)
   end
 
   def index
