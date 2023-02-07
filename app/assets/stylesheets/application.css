@@ -20,12 +20,16 @@
   box-sizing: border-box;
 }
 
+header, h1, nav, .list-comment {
+  font-family: "Kaushan", cursive, sans-serif;
+}
+
 header {
   width: 90%;
   padding: 15px 0;
   margin: 30px auto 0;
   text-align: center;
-  border-top: solid 5px #000;
+  border-top: solid 5px #000000;
 }
 
 header .headline {
@@ -35,8 +39,8 @@ header .headline {
 nav {
   width: 880px;
   margin: 0 auto;
-  border-top: solid 0.7px #000;
-  border-bottom: solid 0.7px #000;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
 }
 
 .nav-list {
@@ -61,12 +65,37 @@ main {
   flex-wrap: wrap;
 }
 
+/*image,body,titleの1グループ*/
 .list-box {
   width: 200px;
   height: 250px;
   margin: 10px;
+  /*親要素にrelative指定、ここがabsoluteの起点*/
+  position: relative;
 }
 
+/*body,titleのテキストグループ*/
 .list-comment {
   width: 200px;
+  /*絶対位置absolute指定*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.list-body {
+  display: block;
+  color: gray;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-title {
+  display: block;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
